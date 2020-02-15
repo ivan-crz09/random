@@ -10,8 +10,11 @@ let mix = require('laravel-mix');
  | file for your application, as well as bundling up your JS files.
  |
  */
+
+mix.config.fileLoaderDirs.fonts = 'public/fonts';
 mix.js('./src/js/app.js', 'public/js/')
     .sass('./src/sass/app.sass', 'public/styles/')
     .copy('./src/img', 'public/img', false)
+    .copy('./src/fonts', 'public/fonts', false)
     .setPublicPath('public')
-    .browserSync('http://localhost:9000');
+    .browserSync('http://localhost:10000');

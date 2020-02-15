@@ -7,6 +7,7 @@ window.app = new Vue({
     // :: Bind Vue to element with ID 'app'
     el: '#app',
     // :: Use v-router
+    store,
     router,
     data() {
         return {

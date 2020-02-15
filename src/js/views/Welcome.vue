@@ -1,22 +1,41 @@
 <template>
     <div class="container-fluid">
-        <div class="row">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <sliderHome></sliderHome>
+        <br/>
+        <banner-vue></banner-vue>
+        <br/>
+        <br/>
+        <br/>
+        <membership></membership>
+        <partners></partners>
+            <!--
+            <div id="carouselExampleIndicators" class="carousel" >
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <template v-for="(slide,index) in sliders">
+                        <li data-target="#carouselExampleIndicators" :data-slide-to="index" ></li>
+                    </template>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="/public/img/example1.jpeg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="/public/img/example2.jpeg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="/public/img/example1.jpeg" alt="Third slide">
-                    </div>
+                    <template v-for="(slide,index) in sliders">
+                        <template v-if="index==0">
+                            <div class="carousel-item active">
+                                <template v-if="slide.event.video=''">
+                                    <router-link class="nav-link text-white mr-5" :to="`event/${slide.event._id}`"><img class="d-block w-100" :src="slide.event.imgs.general" :alt="index"></router-link>
+                                </template>
+                                <template v-else>
+                                    <div class="video">
+                                        <iframe src="https://player.vimeo.com/video/93292237?api=1&wmode=transparent"
+                                                frameborder="0" allowfullscreen data-autoplay="1"></iframe>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                        <template v-else>
+                            <div class="carousel-item">
+                                <router-link class="nav-link text-white mr-5" :to="`event/${slide.event._id}`"><img class="d-block w-100" :src="slide.url" :alt="index"></router-link>
+                            </div>
+                        </template>
+                    </template>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -27,31 +46,78 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+            <hr class="hr-welcome">
         </div>
-        <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-            </p>
-        </div>
+        -->
+        <!--
+        <br/>
+        <bannerVue></bannerVue>
+        <br/>
+        <br/>
+        <br/>
+        <membership></membership>
+        <partners></partners>
+        -->
     </div>
 </template>
 
 <script>
+    import Banner from '../random/Banner'
     export default {
-        name: "Welcome"
+        name: "Welcome",
+        data(){
+            return {
+                banners: [],
+                sliders:[]
+            }
+        },
+        created(){
+        },
+        components: {
+            'bannerVue': require('../components/Home/Banner').default,
+            'membership': require('../components/Home/Membership').default,
+            'partners': require('../components/Home/Partners').default,
+            'sliderHome': require('../components/Home/SliderHome').default
+        },
+        methods:{
+            chargeEvents(){
+                console.log('aaaaaaaaaaaaaa')
+                Banner.getAll().then(({data}) => {
+                    console.log(data,"banner")
+                    let banners = data
+                    banners.sort(function(a, b) {
+                        return Number(a.position) - Number(b.position);
+                    })
+
+                    this.banners = data
+
+                    console.log(this.banners,"bannersssss")
+                    console.log(this.banners)
+                }).catch(err => {
+                    console.log(err)
+                })
+            },
+            redirectEvent(index){
+
+                let id = this.banners[index].event
+                console.log("banner",this.banners[index])
+                console.log('idddddddddd',id)
+                //alert('redirectEvent')
+                router.push({ name: 'eventDetail', params: { id: id} })
+            }
+        }
     }
 </script>
 
 <style scoped>
-    .carousel-item {
-        height: 600px !important;
+
+    nav {
+        position: absolute;
     }
 
-    #carouselExampleIndicators.a{
-        background-color: black;
+    a{
+        margin-right: 0 !important;
+        padding: 0;
     }
+
 </style>

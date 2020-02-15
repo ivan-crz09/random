@@ -1,5 +1,6 @@
 <template>
-    $END$
+    <div class="container-fluid">
+    </div>
 </template>
 
 <script>
