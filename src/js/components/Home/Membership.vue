@@ -1,26 +1,30 @@
 <template>
     <div>
-        <div class="row">
-            <img :src="firstMembership()" alt="Girl in a jacket" width="100%" height="975">
-            <div class="flex-container">
-                <div class="d-flex flex-column">
-                    <div class="red-bar"></div>
+        <div class="row no-gutters ">
+            <div class="col">
+                 <div class="flex-container">
+                    <div class="d-flex flex-column">
+                        <div class="red-bar"></div>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <h2 class="subtitle-random">CONVENIOS RANDOM X®</h2>
+                        <h1 class="title-random">MEMBRESIA</h1>
+                    </div>
                 </div>
-                <div class="d-flex flex-column">
-                    <h2 class="subtitle-random">CONVENIOS RANDOM X®</h2>
-                    <h1 class="title-random">MEMBRESIA</h1>
-                </div>
+                <img :src="firstMembership()" alt="Girl in a jacket" width="100%" height="975">
             </div>
         </div>
-        <div class="row">
-            <img :src="secondMembership()" alt="Girl in a jacket" width="100%" height="975">
-            <div class="row text-membership">
-                <div class="col-md-4">
-                    <p class="para-membership">
-                        {{textMembership}}
-                    </p>
-                    <button class="go-membership">¡Vamos!</button>
+        <div class="row no-gutters ">
+            <div class="col">
+                <div class="row text-membership">
+                    <div class="col-md-4">
+                        <p class="para-membership">
+                            {{textMembership}}
+                        </p>
+                        <button class="go-membership">¡Vamos!</button>
+                    </div>
                 </div>
+                <img :src="secondMembership()" alt="Girl in a jacket" width="100%" height="975">
             </div>
         </div>
     </div>
@@ -68,6 +72,7 @@
         position: absolute;
         margin-left: 10%;
         margin-top: 10%;
+        z-index: 1000;
     }
 
     .subtitle-random {
@@ -90,6 +95,7 @@
         justify-content: flex-end;
         margin-right: 10%;
         margin-top: 500px;
+        z-index: 10;
     }
 
     .text-membership button {
@@ -114,6 +120,10 @@
 
     .go-membership{
         font-weight: bold;
+    }
+
+    img{
+        object-fit: cover;
     }
 
 </style>

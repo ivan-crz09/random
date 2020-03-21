@@ -7,6 +7,12 @@ let routes = [
     {
         path: '/',
         name:"welcome",
+        component: require('./views/Welcome2.vue').default,
+        meta: {title: ' Random :: Inicio'}
+    },
+    {
+        path: '/w',
+        name:"welcome2",
         component: require('./views/Welcome.vue').default,
         meta: {title: ' Random :: Inicio'}
     },
@@ -19,7 +25,7 @@ let routes = [
     {
         path: '/login',
         name:"login",
-        component: require('./views/Loginv2.vue').default,
+        component: require('./views/Loginv3.vue').default,
         meta: {title: ' Random :: Login'}
     },
     {
@@ -39,6 +45,12 @@ let routes = [
         name:"contact",
         component: require('./views/Contact/Contact.vue').default,
         meta: {title: ' Random :: Contacto'}
+    },
+    {
+        path: '/coins',
+        name:"coins",
+        component: require('./views/Coins/Coins.vue').default,
+        meta: {title: ' Random :: Monedas'}
     },
     {
         path: '/membership',

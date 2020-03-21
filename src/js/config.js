@@ -3,7 +3,7 @@ const config = {
         apiUrl: "http://randomapi-env.hympu3cp2s.us-east-1.elasticbeanstalk.com"
     },
     "development": {
-        apiUrl: "http://localhost:5000"
+        apiUrl: "http://randomapi-env.hympu3cp2s.us-east-1.elasticbeanstalk.com"
     }
 }
 

@@ -1,27 +1,23 @@
 <template>
-    <nav class="navbar navbar-light navbar-expand-md justify-content-center ">
+    <nav class="navbar navbar-light navbar-expand-lg justify-content-center ">
         <a href="/" class="navbar-brand d-flex mr-auto ml-4"><img src="/public/img/random_logo.png" class="img-brand" alt="Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
-            <span class="navbar-toggler-icon"></span>
+            <!--<span class="navbar-toggler-icon"></span>-->
+            <i class="fa fa-navicon icon-toggler"></i>
         </button>
-        <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
-            <ul class="navbar-nav w-100 justify-content-center">
-                <template v-for="section in menu">
-                    <li class="nav-item">
+        <div class="navbar-collapse collapse" id="collapsingNavbar3">
+            <ul class="navbar-nav justify-content-center">
+                <template v-for="(section,index) in menu">
+                    <li class="nav-item" :key="index">
                         <router-link class="nav-link text-white mr-5" :to="section.redirect">{{section.name}}</router-link>
                     </li>
                 </template>
+                <!--
                 <template v-if="user.nombre">
                     <li class="nav-item moverClase"><router-link class="nav-link text-white mr-5" to="nombre">Bienvenido: {{user.nombre}}</router-link></li>
                 </template>
+                -->
 
-            </ul>
-            <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">
-                        <i class="fas fa-plus fa-2x"></i>
-                    </a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -39,6 +35,11 @@
                   {
                       "name": "EVENTOS",
                       "redirect": "/events",
+                      "class": ""
+                  },
+                  {
+                      "name": "MONEDAS",
+                      "redirect": "coins",
                       "class": ""
                   },
                   {
@@ -80,32 +81,71 @@
         background-color: transparent;
         width: 100%;
         z-index:2;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        position: absolute;
     }
 
     .navbar-brand{
-        width: 42% !important;
+        width: 30% !important;
     }
 
     .img-brand{
-        width: 170px
+        width: 160px
     }
 
-    .router-link-active {
-        text-decoration-line: underline;
+    .router-link-exact-active {
+        border-bottom: 3px solid;
+        border-bottom-color: #db0a40;
     }
 
 
     .nav-link{
         font-weight: bold;
         font-style: normal;
-    }
-
-    a{
-        line-height: 47pt;
+        padding: 0px !important;
+        text-shadow: 0 0 20px #000f1e;
     }
 
     .moverClase {
         margin-left: 10px;
+    }
+
+    .navbar-light .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.71);
+    }
+
+    .icon-toggler{
+        color:#fff; 
+        font-size:24px;
+    }
+
+    @media only screen and (max-width: 1630px) and (min-width: 1131px ) {
+        .navbar-brand {
+            width: 20% !important;
+        }
+    }
+
+    @media only screen and (max-width: 1130px) and (min-width: 992px ) {
+
+        .navbar-expand-lg .navbar-collapse {
+            font-size: 12px;
+        }
+
+        .img-brand[data-v-c8e6104e] {
+            width: 135px;
+        }
+
+        .navbar-brand{
+            width: 20% !important;
+        }
+
+    }
+
+    @media only screen and (max-width: 991px ) {
+        .img-brand[data-v-c8e6104e] {
+            width: 135px;
+        }
     }
 
 </style>

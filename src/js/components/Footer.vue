@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row footer-menu">
                 <div class="col-md-1">
-                    <img src="/src/img/LogoFooter.png" width="100%">
+                    <img class="footer-image" src="/public/img/LogoFooter.png" width="100%">
                 </div>
                 <div class="col offset-md-1">
                     <div class="flex-container">
@@ -49,19 +49,19 @@
                             <button class="button-newsletter">SUSCRIBIRME</button>
                         </div>
                         <div class="d-flex flex-column first-social-network social-network">
-                            <img src="/src/img/banner/Vimeo%20Logo.png" width="100%">
+                            <img src="/public/img/banner/Vimeo%20Logo.png" width="100%">
                         </div>
                         <div class="d-flex flex-column social-network">
-                            <img src="/src/img/banner/YouTube%20Logo.png" width="100%">
+                            <img src="/public/img//banner/YouTube%20Logo.png" width="100%">
                         </div>
                         <div class="d-flex flex-column social-network">
-                            <img src="/src/img/banner/FaceBook%20Logo.png" width="100%">
+                            <img src="/public/img/banner/FaceBook%20Logo.png" width="100%">
                         </div>
                         <div class="d-flex flex-column social-network">
-                            <img src="/src/img/banner/Twitter%20Logo.png" width="100%">
+                            <img src="/public/img/banner/Twitter%20Logo.png" width="100%">
                         </div>
                         <div class="d-flex flex-column social-network">
-                            <img src="/src/img/banner/Instagram%20Logo.png" width="100%">
+                            <img src="/public/img/banner/Instagram%20Logo.png" width="100%">
                         </div>
                     </div>
 
@@ -122,7 +122,7 @@
     }
 
     .input-newsletter {
-        width: 370px;
+        width: 100%;
         text-indent: 6px;
         border: 1px solid #505050;
         background-color: black;
@@ -130,7 +130,7 @@
 
     .button-newsletter{
         margin-top: 10px;
-        width: 185px;
+        width: 10%;
         border-radius: 20px;
         color: white;
         border: none;
@@ -153,6 +153,20 @@
     .social-network img{
         width: 80%;
         margin-top: 2px;
+    }
+
+    @media only screen and (max-width: 650px ) {
+        .footer-image{
+            width: 90px;
+        }
+
+        .input-newsletter{
+            width: 182px;
+        }
+
+        .button-newsletter{
+            width: 100%;
+        }
     }
 
 </style>

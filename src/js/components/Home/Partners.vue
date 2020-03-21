@@ -57,9 +57,6 @@
 </script>
 
 <style scoped>
-    .partners{
-    }
-
     .partners .col{
         padding: 0px;
     }

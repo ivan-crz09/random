@@ -1,6 +1,7 @@
 import './bootstrap'
 
 Vue.component('nav-header', require('./components/Header.vue').default)
+Vue.component('vertical-header', require('./components/VerticalHeader.vue').default)
 Vue.component('vue-footer', require('./components/Footer.vue').default)
 
 window.app = new Vue({

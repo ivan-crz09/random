@@ -78,33 +78,6 @@
             'membership': require('../components/Home/Membership').default,
             'partners': require('../components/Home/Partners').default,
             'sliderHome': require('../components/Home/SliderHome').default
-        },
-        methods:{
-            chargeEvents(){
-                console.log('aaaaaaaaaaaaaa')
-                Banner.getAll().then(({data}) => {
-                    console.log(data,"banner")
-                    let banners = data
-                    banners.sort(function(a, b) {
-                        return Number(a.position) - Number(b.position);
-                    })
-
-                    this.banners = data
-
-                    console.log(this.banners,"bannersssss")
-                    console.log(this.banners)
-                }).catch(err => {
-                    console.log(err)
-                })
-            },
-            redirectEvent(index){
-
-                let id = this.banners[index].event
-                console.log("banner",this.banners[index])
-                console.log('idddddddddd',id)
-                //alert('redirectEvent')
-                router.push({ name: 'eventDetail', params: { id: id} })
-            }
         }
     }
 </script>
